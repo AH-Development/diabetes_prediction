@@ -53,7 +53,6 @@ Les données ont été traitées de la manière suivante :
 Plusieurs modèles ont été testés :
 - **Logistic Regression**
 - **Random Forest Classifier**
-- **XGBoost**
 - **Support Vector Machine (SVM)**
 
 Pour chaque modèle, nous avons effectué une **optimisation des hyperparamètres** à l'aide de **GridSearchCV** pour trouver la meilleure configuration de paramètres.
@@ -68,27 +67,3 @@ Les performances des modèles ont été évaluées à l’aide de plusieurs mét
   
 La **matrice de confusion** a été utilisée pour visualiser les erreurs de classification et mieux comprendre les performances du modèle.
 
-### Interprétabilité
-
-Afin d'interpréter les décisions du modèle, nous avons utilisé **SHAP** (Shapley Additive Explanations), une méthode d'explicabilité des modèles de machine learning. Cela permet de comprendre l'impact de chaque caractéristique sur les prédictions du modèle.
-
-## Utilisation du Modèle
-
-Après l’entraînement du modèle, vous pouvez charger le modèle sauvegardé et l'utiliser pour faire des prédictions avec de nouvelles données.
-
-### Exemple de prédiction :
-
-```python
-import joblib
-
-# Charger le modèle et le scaler
-model = joblib.load('diabetes_model.pkl')
-scaler = joblib.load('scaler.pkl')
-
-# Nouvelles données à prédire
-new_data = [[6, 148, 72, 35, 0, 33.6, 0.627, 50]]  # Exemple de nouvelle entrée
-new_data_scaled = scaler.transform(new_data)
-
-# Prédiction
-prediction = model.predict(new_data_scaled)
-print(f"Prediction: {prediction[0]} (0 = Pas diabète, 1 = Diabète)")
