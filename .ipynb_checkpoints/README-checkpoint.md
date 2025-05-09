@@ -1,9 +1,8 @@
 # Prédiction du Diabète avec Machine Learning
 
-Ce projet de classification utilise le **Pima Indians Diabetes Dataset** pour prédire la probabilité de développer un diabète. Le modèle a été développé avec plusieurs algorithmes de machine learning, dont **Random Forest**, **XGBoost**, et **Logistic Regression**. L'objectif est de fournir une solution de prédiction rapide, interprétable et performante basée sur des données médicales.
+Ce projet de classification utilise le **Diabetes Dataset** pour prédire la probabilité de développer un diabète. Le modèle a été développé avec plusieurs algorithmes de machine learning, dont **Random Forest**, **Support Vector Machin**, et **Logistic Regression**. L'objectif est de fournir une solution de prédiction rapide, interprétable et performante basée sur des données médicales.
 
 ## Table des matières
-1. [Contexte](#contexte)
 2. [Données](#données)
 3. [Pipeline du Projet](#pipeline-du-projet)
    - [Exploration des données](#exploration-des-données)
@@ -16,24 +15,18 @@ Ce projet de classification utilise le **Pima Indians Diabetes Dataset** pour pr
 6. [Auteurs](#auteurs)
 7. [License](#license)
 
-## Contexte
-
-Le **Pima Indians Diabetes Dataset** contient des informations sur des patient·e·s de l'Inde Pima (une communauté amérindienne), utilisées pour prédire la probabilité de diabète. Chaque ligne du dataset contient des informations comme les niveaux de glucose, la pression artérielle, le nombre de grossesses, l'indice de masse corporelle (IMC), etc.
-
-Ce projet met en œuvre plusieurs techniques de machine learning pour prédire la présence de diabète en fonction de ces informations.
-
 ## Données
 
 Les données sont disponibles sous forme de fichier CSV et incluent les caractéristiques suivantes :
-- **Pregnancies** : Nombre de grossesses
-- **Glucose** : Concentration de glucose dans le sang
-- **BloodPressure** : Pression artérielle diastolique (mm Hg)
-- **SkinThickness** : Épaisseur de la peau
-- **Insulin** : Niveau d'insuline sérique (mu U/ml)
-- **BMI** : Indice de masse corporelle (kg/m²)
-- **DiabetesPedigreeFunction** : Fonction d'ascendance génétique pour le diabète
-- **Age** : Âge du patient
-- **Outcome** : Variable cible (0 = Pas de diabète, 1 = Diabète)
+- **gender** : Sexe (Female/Male/Others)
+- **age** : Âge de l'individu
+- **heart_disease** : Antécédents de maladie cardiaque (0 = Non, 1 = Oui)
+- **hypertension** : Hypertension (0 = Non, 1 = Oui)
+- **smoking_history** : Historique de tabagisme (Never/Former/Current/No Info)
+- **bmi** : Indice de masse corporelle (kg/m²)
+- **HbA1c_level** : Taux d'HbA1c (glycémie sur 3 mois)
+- **blood_glucose_level** : Glycémie à jeun
+- **diabetes** : Présence de diabète (0 = Non, 1 = Oui)
 
 ## Pipeline du Projet
 
@@ -44,7 +37,7 @@ Dans cette étape, nous avons exploré les données pour comprendre leur structu
 ### Prétraitement des données
 
 Les données ont été traitées de la manière suivante :
-- Les valeurs manquantes ont été remplacées par la médiane de la colonne correspondante.
+- Les valeurs manquantes ont été supprimées.
 - Les caractéristiques ont été **normalisées** pour garantir une échelle comparable lors de l'entraînement des modèles.
 - Des transformations ont été appliquées pour rendre les données prêtes à être utilisées dans des modèles de machine learning.
 
@@ -54,8 +47,9 @@ Plusieurs modèles ont été testés :
 - **Logistic Regression**
 - **Random Forest Classifier**
 - **Support Vector Machine (SVM)**
+- **XGBoost**
 
-Pour chaque modèle, nous avons effectué une **optimisation des hyperparamètres** à l'aide de **GridSearchCV** pour trouver la meilleure configuration de paramètres.
+Nous avons effectué une **optimisation des hyperparamètres** à l'aide de **GridSearchCV** pour trouver la meilleure configuration de paramètres.
 
 ### Évaluation des Performances
 

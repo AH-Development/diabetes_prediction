@@ -47,8 +47,9 @@ Plusieurs modèles ont été testés :
 - **Logistic Regression**
 - **Random Forest Classifier**
 - **Support Vector Machine (SVM)**
+- **XGBoost**
 
-Pour chaque modèle, nous avons effectué une **optimisation des hyperparamètres** à l'aide de **GridSearchCV** pour trouver la meilleure configuration de paramètres.
+Nous avons effectué une **optimisation des hyperparamètres** à l'aide de **GridSearchCV** pour trouver la meilleure configuration de paramètres.
 
 ### Évaluation des Performances
 
